@@ -9,8 +9,11 @@
     </section>
   <section>
       <%= render 'shared/stats' %>
-    </section>
+  </section>
   </aside>
+
+  <%= image_tag @user.picture %>
+  
 
   <div class="span8">
     <%= render 'follow_form' if signed_in? %>

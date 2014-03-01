@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @video.url %>
+</p>
+
+<iframe src='http://player.vimeo.com/video/<%= @video.url %>?title=0&amp;byline=0&amp;portrait=0' width='400' height='225'frameborder='0'></iframe>
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>

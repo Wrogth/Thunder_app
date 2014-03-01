@@ -12,8 +12,9 @@ def make_users
                        email:    "creightonvaughn@gmail.com",
                        password: "jk2jk2",
                        password_confirmation: "jk2jk2",
-                       admin: true)
-  99.times do |n|
+                       admin: true,
+                       picture: "http://www.architerials.com/wp-content/uploads/2011/04/Nature_Flowers_Red_striped_tulip__Flowers_008324_.jpg")
+  9.times do |n|
     name  = Faker::Name.name
     email = "example-#{n+1}@railstutorial.org"
     password  = "password"
@@ -26,7 +27,7 @@ end
 
 def make_microposts
   users = User.all(limit: 6)
-  50.times do
+  5.times do
     content = Faker::Lorem.sentence(5)
     users.each { |user| user.microposts.create!(content: content) }
   end

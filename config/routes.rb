@@ -1,4 +1,6 @@
 SampleApp::Application.routes.draw do
+  resources :portfolios
+  resources :videos
   resources :users do
     member do
       get :following, :followers
@@ -15,4 +17,6 @@ SampleApp::Application.routes.draw do
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/videos',  to: 'videos#index',         via: 'get'
+  match '/portfolio', to: 'portfolios#show',     via: 'get'
 end
