@@ -2,13 +2,14 @@
 
 <p>
   <strong>Feed:</strong>
+  <%= @portfolio.feed %>
 </p>
 
- <%= <script type='text/javascript' src='@portfolio.feed'></script> %>
+ <script type='text/javascript' src='<%= @portfolio.feed %>/js'></script>
 
 <p>
   <strong>Cover image:</strong>
-  <%= @portfolio.cover_image %>
+  <%= image_tag @portfolio.cover_image %>
 </p>
 
 <p>

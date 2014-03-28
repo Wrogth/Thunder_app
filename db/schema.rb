@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140228235427) do
+ActiveRecord::Schema.define(version: 20140304195605) do
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(version: 20140228235427) do
     t.text     "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "portfolios", ["user_id"], name: "index_portfolios_on_user_id"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -59,6 +62,8 @@ ActiveRecord::Schema.define(version: 20140228235427) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover"
+    t.integer  "portfolio_id"
   end
 
 end
