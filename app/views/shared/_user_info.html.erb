@@ -1,10 +1,6 @@
-<%= link_to gravatar_for(current_user, size: 52), current_user %>
-<h1>
+<h1 id="archive_title">
   <%= current_user.name %>
 </h1>
 <span>
-  <%= link_to "view my profile", current_user %>
-</span>
-<span>
-  <%= pluralize(current_user.microposts.count, "micropost") %>
+  <%= link_to "view my portfolio", current_user.portfolio %>
 </span>
