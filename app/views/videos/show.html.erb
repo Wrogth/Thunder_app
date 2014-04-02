@@ -1,14 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Url:</strong>
-  <iframe src='http://player.vimeo.com/video/<%= @video.url %>?title=0&amp;byline=0&amp;portrait=0' width='400' height='225'frameborder='0'></iframe>
-</p>
-
-<p>
   <strong>Cover:</strong>
   <%= image_tag @video.cover %>
 </p>
+
+<p>
+<div class="video">
+
+  <iframe src='http://player.vimeo.com/video/<%= @video.url %>?title=0&amp;byline=0&amp;portrait=0' width='400' height='225'frameborder='0'></iframe>
+
+</div>
+</p>
+
 
 
 <%= link_to 'Edit', edit_video_path(@video) %> |
