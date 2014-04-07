@@ -1,21 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Feed:</strong>
-  <%= @portfolio.feed %>
-</p>
-
- <script type='text/javascript' src='<%= @portfolio.feed %>/js'></script>
-
-<p>
-  <strong>Cover image:</strong>
+<div class="img2">
   <%= image_tag @portfolio.cover_image %>
-</p>
+</div>
 
 <p>
   <strong>Bio:</strong>
   <%= @portfolio.bio %>
 </p>
+
+<p>
+  <strong>
+  <%= @portfolio.feed %>
+</strong>
+</p>
+
+ <script type='text/javascript' src='<%= @portfolio.feed %>/js'></script>
+
+
+
 
 <%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
 <%= link_to 'Back', portfolios_path %>
