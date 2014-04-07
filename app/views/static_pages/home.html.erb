@@ -1,7 +1,12 @@
-<% if signed_in? %>
-  <%= render 'shared/user_info' %>
-
-<% else %>
-  <div class="logo316"></div>
-<h1 id="archive_title">ThunderDome</h1>
-<% end %>
+<h1 class="index_title">The Thunderdome</h1>
+<hr class="divider">
+	<div class="row">
+		<% @users.each do |user| %>
+			<div class="front_page_images col-lg-3 col-md-4 col-sm-6 col-xs-12">
+				<center><%= link_to("/portfolios/") do %>
+					<img src="<%= user.picture %>">
+				<% end %></center>
+			</div>
+		<% end %>
+	</div>
+</div>

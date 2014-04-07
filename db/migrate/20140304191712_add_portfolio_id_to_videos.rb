@@ -1,6 +1,5 @@
 class AddPortfolioIdToVideos < ActiveRecord::Migration
   def change
-    add_column :videos, :portfolio_id, :integer
-    add_index :video, :portfolio_id
+    add_reference :videos, :portfolio, index: true
   end
 end

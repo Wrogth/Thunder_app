@@ -66,4 +66,6 @@ ActiveRecord::Schema.define(version: 20140304195605) do
     t.integer  "portfolio_id"
   end
 
+  add_index "videos", ["portfolio_id"], name: "index_videos_on_portfolio_id"
+
 end
