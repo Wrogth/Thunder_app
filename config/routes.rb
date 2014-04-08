@@ -6,6 +6,11 @@ SampleApp::Application.routes.draw do
       get :following, :followers
     end
   end
+
+  resources :users do
+    resources :portfolios
+  end
+
   resources :users	
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]

@@ -1,12 +1,67 @@
 <h1 class="index_title">The Thunderdome</h1>
 <hr class="divider">
-	<div class="row">
-		<% @users.each do |user| %>
-			<div class="front_page_images col-lg-3 col-md-4 col-sm-6 col-xs-12">
-				<center><%= link_to("/portfolios/") do %>
+<% @u = @users %>
+<div class="row">
+<% while @u.length > 0 %>
+	
+	<% if @u.length > 2 %>
+		<% @u.pop(3).each do |user| %>
+		 	<div class="front_page_images col-lg-4 col-md-4 col-sm-6 col-xs-12">
+				<%= link_to(user_portfolio_path(user, user.portfolio.id)) do %>
 					<img src="<%= user.picture %>">
-				<% end %></center>
+				<% end %>
+				<Br><div class="img_caption"><%= user.name %></div>
 			</div>
 		<% end %>
-	</div>
+	<% elsif @u.length == 2 %>
+		<% @last = @u.pop(2) %>
+	 	<div class="front_page_images col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-6 col-xs-12">
+			<%= link_to("/portfolios/") do %>
+				<img src="<%= @last.first.picture %>">
+			<% end %>
+			<Br><div class="img_caption"><%= @last.first.name %></div>
+		</div>		
+	 	<div class="front_page_images col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<%= link_to("/portfolios/") do %>
+				<img src="<%= @last.second.picture %>">
+			<% end %>
+			<Br><div class="img_caption"><%= @last.second.name %></div>
+		</div>				
+
+	<% else %>
+		<% @last = @u.pop %>
+	 	<div class="front_page_images col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-xs-12">
+			<%= link_to("/portfolios/") do %>
+				<img src="<%= @last.picture %>">
+			<% end %>
+			<Br><div class="img_caption"><%= @last.name %></div>
+		</div>			
+
+	<% end %>
+
+<% end %>
 </div>
+
+
+
+
+
+<hr class="divider">
+
+ <center><script type='text/javascript' src='http://isaacdeitz.tumblr.com/js'></script></center>
+
+
+</div>
+
+<script>
+
+	$(".img_caption").textShadow({
+	color:   "#000",
+	xoffset: "5px",
+	yoffset: "5px",
+	radius:  "5px",
+	opacity: "50"
+});
+
+</script>
+
