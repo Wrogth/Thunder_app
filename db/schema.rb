@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304195605) do
+ActiveRecord::Schema.define(version: 20140408161043) do
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140304195605) do
     t.string   "remember_token"
     t.boolean  "admin"
     t.string   "picture"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -65,7 +66,5 @@ ActiveRecord::Schema.define(version: 20140304195605) do
     t.string   "cover"
     t.integer  "portfolio_id"
   end
-
-  add_index "videos", ["portfolio_id"], name: "index_videos_on_portfolio_id"
 
 end
