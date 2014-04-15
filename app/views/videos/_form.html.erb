@@ -18,6 +18,10 @@
     <%= f.label :cover %>
     <%= f.text_field :cover %>
   </div>
+
+    <% @video_PID = current_user.portfolio.id %>
+    <% @video.update_attribute(:portfolio_id, @video_PID) %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
