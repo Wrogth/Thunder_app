@@ -11,18 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
+  <div class="form-group">
+    <%= f.label :url %>
+    <%= f.text_field :url, class: "form-control" %>
+  </div>
 
+  <div class="form-group">
     <%= f.label :cover %>
-    <%= f.text_field :cover %>
+    <%= f.text_field :cover, class: "form-control" %>
   </div>
 
     <% @video_PID = current_user.portfolio.id %>
     <% @video.update_attribute(:portfolio_id, @video_PID) %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Video", class: "btn btn-large btn-primary" %>
   </div>
 <% end %>
