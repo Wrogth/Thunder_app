@@ -10,6 +10,9 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/1
   # GET /portfolios/1.json
   def show
+    @videos = @portfolio.videos
+    @folioID = current_user.portfolio.id
+
   end
 
   # GET /portfolios/new

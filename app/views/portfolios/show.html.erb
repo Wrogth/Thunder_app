@@ -1,24 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<div class="img2">
-  <%= image_tag @portfolio.cover_image %>
-</div>
+<h1>Current User's Portolio ID = <%= @folioID %></h1>
 
 <p>
   <strong>Bio:</strong>
   <%= @portfolio.bio %>
 </p>
-
-<p>
-  <strong>
-  <%= @portfolio.feed %>
-</strong>
-</p>
-
- <script type='text/javascript' src='<%= @portfolio.feed %>/js'></script>
+	<center>
+		<% @videos.each do |video| %>
+        	<img class="videoLink" data-video="<%= video.url %>" src="<%= video.cover %>">
+        <% end %>
+    </center>
 
 
 
 
 <%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
 <%= link_to 'Back', portfolios_path %>
+
+
