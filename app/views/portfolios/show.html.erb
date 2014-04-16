@@ -1,6 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Current User's Portolio ID = <%= @folioID %></h1>
+<script>
+  $(document).ready(function() {
+    var description = "This is a description";
+    
+    var populateVideo = function(video) {
+      $('#contentThatFades').append("<div class='video'><iframe src='http://player.vimeo.com/video/" + video + "?title=0&amp;byline=0&amp;portrait=0' width='400' height='225' frameborder='0'></iframe>"+"</div>");
+
+            $(".video").fitVids();
+            setTimeout(function(){
+            $("#panelThatSlides").slideDown(400);
+      }, 600);
+    }
+    $('.videoLink').click(function () {
+      //var videoVal = ($("#"+ eventID).data('video'));
+      var sourceE = $(this).data('video');
+      if ($("#panelThatSlides").is(":visible")) {
+          
+            
+              $("#panelThatSlides").slideUp(400);
+              setTimeout(function(){
+                $('#contentThatFades').empty();
+                populateVideo(sourceE);
+              }, 400);
+
+      }
+      else {
+        populateVideo(sourceE);
+      } 
+    });
+  });
+    
+  </script>
+
+<div class="row">
+	<div class="cover_image col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+		<img src="https://pbs.twimg.com/profile_images/1827129901/268043_10150252226924293_76580379292_7377848_7871146_n.jpg">
+	</div>
+</div>
+<div class="row">
+	<div class="cover_title col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<h1><%=@user.name%> <%=@user.last_name%></h1>
+	</div>
+</div>
 
 <p>
   <strong>Bio:</strong>

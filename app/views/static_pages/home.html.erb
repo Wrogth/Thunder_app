@@ -1,5 +1,14 @@
 <h1 class="index_title">The Thunderdome</h1>
+<h3 class="slogan"><em>A house for growing faith, friendships, and filmmaking</em></h3>
 <hr class="divider">
+<div class="links">
+	<span class="a_link">Press</span> /
+	<span class="a_link">About</span> /
+	<span class="a_link">How can I help?</span> /
+	<span class="a_link">Blog</span>
+</div>
+<hr class="divider">
+
 <% @u = @users %>
 <div class="row">
 <% while @u.length > 0 %>
@@ -16,13 +25,13 @@
 	<% elsif @u.length == 2 %>
 		<% @last = @u.pop(2) %>
 	 	<div class="front_page_images col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-6 col-xs-12">
-			<%= link_to("/portfolios/") do %>
+	 		<%= link_to(user_portfolio_path(@last.first, @last.first.portfolio.id)) do %>
 				<img src="<%= @last.first.picture %>">
 			<% end %>
 			<Br><div class="img_caption"><%= @last.first.name %></div>
 		</div>		
 	 	<div class="front_page_images col-lg-4 col-md-4 col-sm-6 col-xs-12">
-			<%= link_to("/portfolios/") do %>
+	 		<%= link_to(user_portfolio_path(@last.last, @last.last.portfolio.id)) do %>
 				<img src="<%= @last.second.picture %>">
 			<% end %>
 			<Br><div class="img_caption"><%= @last.second.name %></div>
@@ -48,7 +57,18 @@
 
 <hr class="divider">
 
- <center><script type='text/javascript' src='http://isaacdeitz.tumblr.com/js'></script></center>
+<center>
+<div class="mission col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+<h3>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <Br>
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</h3>
+</div>
+</center>
+
+<hr class="divider">
+
+
+
 
 
 </div>

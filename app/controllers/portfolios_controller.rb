@@ -11,8 +11,7 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/1.json
   def show
     @videos = @portfolio.videos
-    @folioID = current_user.portfolio.id
-
+    @user = User.find(@portfolio.user_id)
   end
 
   # GET /portfolios/new
