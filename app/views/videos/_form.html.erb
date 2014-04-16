@@ -20,6 +20,7 @@
     <%= f.label :cover %>
     <%= f.text_field :cover, class: "form-control" %>
   </div>
+ 
 
     <% @video_PID = current_user.portfolio.id %>
     <% @video.update_attribute(:portfolio_id, @video_PID) %>

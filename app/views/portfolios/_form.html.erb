@@ -82,10 +82,11 @@
     <div class="form-group">
       <%= f.label "Long term goals" %>
       <%= f.text_area :long_goals, class: "form-control" %>
-    </div>
-
-
-  <div class="actions">
+    </div <div class="form-group">
+      <% user_array = User.all %>
+    <%= f.select :user_id, user_array %>
+    </div>    
+    <div class="actions">
      <%= f.submit "Create Portfolio", class: "btn btn-large btn-primary" %>
-  </div>
+    </div>
 <% end %>
