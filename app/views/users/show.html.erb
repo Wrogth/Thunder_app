@@ -11,7 +11,7 @@
 
   <%= image_tag @user.picture %>
 
-  <%= link_to 'Portfolio', portfolio_path(@user.id) %>
+  <%= link_to 'Portfolio', user_portfolio_path(@user.id, @user.portfolio.id) %>
   
 
 </div>

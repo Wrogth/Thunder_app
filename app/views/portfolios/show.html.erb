@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<<<<<<< HEAD
 <script>
   $(document).ready(function() {
     var description = "This is a description";
@@ -35,22 +34,104 @@
   </script>
 
 <div class="row">
-	<div class="cover_image col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
-		<img src="https://pbs.twimg.com/profile_images/1827129901/268043_10150252226924293_76580379292_7377848_7871146_n.jpg">
+  <div class="portfolio_head col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <%= @user.name %> <%= @user.last_name %>
+  </div>
+	<div class="cover_image col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<img src="<%= @portfolio.cover_image %>">
 	</div>
 </div>
-<div class="row">
-	<div class="cover_title col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<h1><%=@user.name%> <%=@user.last_name%></h1>
-	</div>
-</div>
-=======
->>>>>>> 1f32e8867e3d4d728eee26ff5a4362792589b998
 
-<p>
-  <strong>Bio:</strong>
-  <%= @portfolio.bio %>
-</p>
+
+<div class="row">
+  <div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-12 col-xs-12">
+    <div class="portfolio_title">
+      <center>Website:</center>
+    </div>
+    <div class="portfolio_content bio_content">
+      <center><a href="<%= @portfolio.website %>"><%= @portfolio.website %></a></center>
+    </div>
+  </div>
+  <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
+    <div class="portfolio_title">
+      <center>Contact:</center>
+    </div>
+    <div class="portfolio_content bio_content">
+      <center><%= @portfolio.phone_number %></center>
+    </div>
+  </div>
+  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+    <div class="portfolio_title"><center>Bio:</center></div>
+    <div class="portfolio_content bio_content">
+      <%= @portfolio.bio %>
+    </div>
+  </div>
+  <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12">
+    <div class="portfolio_title_smaller">
+      <center>Originally From:</center>
+    </div>
+    <div class="portfolio_content from_content">
+      <center><%= @portfolio.originally_from %></center>
+    </div>
+  </div>
+  <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">   
+    <div class="portfolio_title_smaller">
+      <center>Latest Video Reel:</center>
+    </div>
+    <div class="portfolio_content bio_content">
+      <center><a href="<%= @portfolio.video_reel_url %>"><%= @portfolio.video_reel_name %></a></center>
+    </div>
+  </div>
+  <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-12 col-xs-12">   
+    <div class="portfolio_title_smaller">
+      <center>Favorite Music Video:</center>
+    </div>
+    <div class="portfolio_content bio_content">
+      <center><a href="<%= @portfolio.fav_video_url %>"><%= @portfolio.fav_video_name %></a></center>
+    </div>
+  </div>
+  <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">    
+    <div class="portfolio_title_smaller">
+      <center>Favorite Director:</center>
+    </div>
+    <div class="portfolio_content bio_content">
+      <center><%= @portfolio.fav_director %></center>
+    </div>
+  </div>
+  <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-12 col-xs-12">    
+    <div class="portfolio_title_smaller">
+      <center>Favorite Movie:</center>
+    </div>
+    <div class="portfolio_content bio_content">
+      <center><%= @portfolio.fav_movie %></center>
+    </div>
+  </div>
+  <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">    
+    <div class="portfolio_title_smaller">
+      <center>Favorite Book:</center>
+    </div>
+    <div class="portfolio_content bio_content">
+      <center><%= @portfolio.fav_book %></center>
+    </div>
+  </div>
+  <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-12 col-xs-12">    
+    <div class="portfolio_title_smaller">
+      <center>Favorite Quote:</center>
+    </div>
+    <div class="portfolio_content bio_content">
+      <center><%= @portfolio.fav_quote %></center>
+    </div>
+  </div>
+  <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">    
+    <div class="portfolio_title_smaller">
+      <center>Preferred Position on Set:</center>
+    </div>
+    <div class="portfolio_content bio_content">
+      <center><%= @portfolio.position %></center>
+    </div>
+  </div>
+</div>
+
 	<center>
 		<% @videos.each do |video| %>
         	<img class="videoLink" data-video="<%= video.url %>" src="<%= video.cover %>">
