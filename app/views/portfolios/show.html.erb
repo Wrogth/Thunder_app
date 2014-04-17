@@ -66,82 +66,104 @@
       <%= @portfolio.bio %>
     </div>
   </div>
-  <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12">
-    <div class="portfolio_title_smaller">
-      <center>Originally From:</center>
+  <% unless @portfolio.originally_from == nil or @portfolio.originally_from.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="portfolio_title_smaller">
+        <center>Originally From:</center>
+      </div>
+      <div class="portfolio_content from_content">
+        <center><%= @portfolio.originally_from %></center>
+      </div>
     </div>
-    <div class="portfolio_content from_content">
-      <center><%= @portfolio.originally_from %></center>
+  <% end %>
+  <% unless @portfolio.video_reel_name == nil or @portfolio.video_reel_name.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">   
+      <div class="portfolio_title_smaller">
+        <center>Latest Video Reel:</center>
+      </div>
+      <div class="portfolio_content bio_content">
+        <center><a href="<%= @portfolio.video_reel_url %>"><%= @portfolio.video_reel_name %></a></center>
+      </div>
     </div>
-  </div>
-  <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">   
-    <div class="portfolio_title_smaller">
-      <center>Latest Video Reel:</center>
+  <% end %>
+  <% unless @portfolio.fav_video_name == nil or @portfolio.fav_video_name.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">   
+      <div class="portfolio_title_smaller">
+        <center>Favorite Music Video:</center>
+      </div>
+      <div class="portfolio_content bio_content">
+        <center><a href="<%= @portfolio.fav_video_url %>"><%= @portfolio.fav_video_name %></a></center>
+      </div>
     </div>
-    <div class="portfolio_content bio_content">
-      <center><a href="<%= @portfolio.video_reel_url %>"><%= @portfolio.video_reel_name %></a></center>
+  <% end %>
+  <% unless @portfolio.fav_director == nil or @portfolio.fav_director.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        <center>Favorite Director:</center>
+      </div>
+      <div class="portfolio_content bio_content">
+        <center><%= @portfolio.fav_director %></center>
+      </div>
     </div>
-  </div>
-  <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-12 col-xs-12">   
-    <div class="portfolio_title_smaller">
-      <center>Favorite Music Video:</center>
+  <% end %>
+  <% unless @portfolio.fav_movie == nil or @portfolio.fav_movie.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        <center>Favorite Movie:</center>
+      </div>
+      <div class="portfolio_content bio_content">
+        <center><%= @portfolio.fav_movie %></center>
+      </div>
     </div>
-    <div class="portfolio_content bio_content">
-      <center><a href="<%= @portfolio.fav_video_url %>"><%= @portfolio.fav_video_name %></a></center>
+  <% end %>
+  <% unless @portfolio.fav_book == nil or @portfolio.fav_book.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        <center>Favorite Book:</center>
+      </div>
+      <div class="portfolio_content bio_content">
+        <center><%= @portfolio.fav_book %></center>
+      </div>
     </div>
-  </div>
-  <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">    
-    <div class="portfolio_title_smaller">
-      <center>Favorite Director:</center>
+  <% end %>
+  <% unless @portfolio.fav_quote == nil or @portfolio.fav_quote.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        <center>Favorite Quote:</center>
+      </div>
+      <div class="portfolio_content bio_content">
+        <center><%= @portfolio.fav_quote %></center>
+      </div>
     </div>
-    <div class="portfolio_content bio_content">
-      <center><%= @portfolio.fav_director %></center>
+  <% end %>
+  <% unless @portfolio.position == nil or @portfolio.position.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        <center>Preferred Position on Set:</center>
+      </div>
+      <div class="portfolio_content bio_content">
+        <center><%= @portfolio.position %></center>
+      </div>
     </div>
-  </div>
-  <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-12 col-xs-12">    
-    <div class="portfolio_title_smaller">
-      <center>Favorite Movie:</center>
-    </div>
-    <div class="portfolio_content bio_content">
-      <center><%= @portfolio.fav_movie %></center>
-    </div>
-  </div>
-  <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">    
-    <div class="portfolio_title_smaller">
-      <center>Favorite Book:</center>
-    </div>
-    <div class="portfolio_content bio_content">
-      <center><%= @portfolio.fav_book %></center>
-    </div>
-  </div>
-  <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-12 col-xs-12">    
-    <div class="portfolio_title_smaller">
-      <center>Favorite Quote:</center>
-    </div>
-    <div class="portfolio_content bio_content">
-      <center><%= @portfolio.fav_quote %></center>
-    </div>
-  </div>
-  <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">    
-    <div class="portfolio_title_smaller">
-      <center>Preferred Position on Set:</center>
-    </div>
-    <div class="portfolio_content bio_content">
-      <center><%= @portfolio.position %></center>
-    </div>
-  </div>
+  <% end %>
 </div>
 
-	<center>
-		<% @videos.each do |video| %>
-        	<img class="videoLink" data-video="<%= video.url %>" src="<%= video.cover %>">
-        <% end %>
-    </center>
+
+<center>
+	<% @videos.each do |video| %>
+    <img class="videoLink" data-video="<%= video.url %>" src="<%= video.cover %>">
+  <% end %>
+</center>
 
 
-
-
-<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
-<%= link_to 'Back', portfolios_path %>
-
+<% if signed_in? %>
+  <% if current_user.admin?  %>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+      <center>
+        <%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+        <%= link_to 'Back', portfolios_path %>
+      </center>
+    </div>
+  <% end %>
+<% end %>
 
