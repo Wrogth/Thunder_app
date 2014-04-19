@@ -3,7 +3,7 @@
 <script>
   $(document).ready(function() {
     var description = "This is a description";
-    
+
     var populateVideo = function(video) {
       $('#contentThatFades').append("<div class='video'><iframe src='http://player.vimeo.com/video/" + video + "?title=0&amp;byline=0&amp;portrait=0' width='400' height='225' frameborder='0'></iframe>"+"</div>");
 
@@ -11,6 +11,9 @@
             setTimeout(function(){
             $("#panelThatSlides").slideDown(400);
       }, 600);
+            
+            
+
     }
     $('.videoLink').click(function () {
       //var videoVal = ($("#"+ eventID).data('video'));
@@ -23,11 +26,10 @@
                 $('#contentThatFades').empty();
                 populateVideo(sourceE);
               }, 400);
-
       }
       else {
         populateVideo(sourceE);
-      } 
+      }
     });
   });
     
@@ -66,6 +68,19 @@
       <%= @portfolio.bio %>
     </div>
   </div>
+</div>
+</div>
+
+<div id="panelThatSlides" style="display:none;background:#eee;padding:10px;">
+<center>
+  <div id="contentThatFades">
+        
+  </div>
+</center>
+</div>
+
+<div class="container">
+<div class="row">
   <% unless @portfolio.originally_from == nil or @portfolio.originally_from.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <div class="portfolio_title_smaller">
@@ -82,7 +97,9 @@
         <center>Latest Video Reel:</center>
       </div>
       <div class="portfolio_content bio_content">
-        <center><a href="<%= @portfolio.video_reel_url %>"><%= @portfolio.video_reel_name %></a></center>
+        <center>
+          <span class="videoLink" data-video="75984087"><%= @portfolio.video_reel_name %></span>
+        </center>
       </div>
     </div>
   <% end %>
@@ -143,6 +160,18 @@
       </div>
       <div class="portfolio_content bio_content">
         <center><%= @portfolio.position %></center>
+      </div>
+    </div>
+  <% end %>
+  <% unless @portfolio.video_reel_name == nil or @portfolio.video_reel_name.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">   
+      <div class="portfolio_title_smaller">
+        <center>Latest Video Reel:</center>
+      </div>
+      <div class="portfolio_content bio_content">
+        <center>
+          <span class="videoLink" data-video="75984087"><%= @portfolio.video_reel_name %></span>
+        </center>
       </div>
     </div>
   <% end %>

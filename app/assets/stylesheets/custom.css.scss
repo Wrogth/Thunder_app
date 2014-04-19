@@ -14,8 +14,13 @@
   margin-top: 20px;
 }
 
-.videoLink {
-  padding: 20px;
+.videoLink:hover {
+  color: #888;
+  text-decoration: underline;
+}
+
+#panelThatSlides {
+  margin-bottom: 30px;
 }
 
 .links {
@@ -33,6 +38,7 @@
 .mission {
   margin-top: -30px;
 }
+
 
 .portfolio_title, .portfolio_title_smaller {
   font-weight: bold;
