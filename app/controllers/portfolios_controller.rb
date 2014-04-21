@@ -1,10 +1,13 @@
 class PortfoliosController < ApplicationController
-  before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
+  before_action :set_portfolio,   only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user,  only: [:index, :new, :edit, :update, :destroy]
+  before_action :admin_user,      only: [:new, :edit, :update, :destroy]
 
   # GET /portfolios
   # GET /portfolios.json
   def index
     @portfolios = Portfolio.all
+    @users = User.where(admin: nil)
   end
 
   # GET /portfolios/1
@@ -71,9 +74,14 @@ class PortfoliosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def portfolio_params
-      params.require(:portfolio).permit(:feed, :cover_image, :bio, :user_id, :originally_from, :website, :phone_number, :video_reel_name,
-                                   :video_reel_url, :fav_director, :fav_movie, :fav_book, :fav_quote, 
-                                   :fav_video_name, :fav_video_url, :position,
-                                   :prev_clients, :skills, :short_goals, :long_goals)
+      params.require(:portfolio).permit(:feed, :cover_image, :bio, :user_id, :originally_from, :website,
+                                        :phone_number, :video_reel_name, :video_reel_url, :fav_director,
+                                        :fav_movie, :fav_book, :fav_quote, :fav_video_name, :fav_video_url,
+                                        :position, :prev_clients, :skills, :short_goals, :long_goals, 
+                                        :home_pic)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

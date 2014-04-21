@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415204950) do
+ActiveRecord::Schema.define(version: 20140421182331) do
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140415204950) do
     t.string   "skills"
     t.text     "short_goals"
     t.text     "long_goals"
+    t.string   "home_pic"
   end
 
   add_index "portfolios", ["user_id"], name: "index_portfolios_on_user_id"

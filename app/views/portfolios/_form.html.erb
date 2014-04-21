@@ -11,90 +11,102 @@
     </div>
   <% end %>
 
+  <% if purpose == "create" %>
+
+    <% @users_without_portfolios = User.includes(:portfolio).where(:portfolios => { :id => nil}) %>
+    <% @user_array = @users_without_portfolios.where(admin: nil) %>
+
+    <div class="form-group">
+      <%= f.label "Whose Portfolio is this?" %>
+      <%= f.select :user_id, options_from_collection_for_select(@user_array, "id", "name") %>
+    </div> 
+
+  <% end %>
+
   <div class="form-group">
-    <%= f.label :cover_image %>
+    <%= f.label :cover_image, "Link to Portfolio Header Image" %>
     <%= f.text_field :cover_image, class: "form-control" %>
   </div>
+  <div class="form-group">
+    <%= f.label :home_pic, "Link to Homepage Image" %>
+    <%= f.text_field :cover_image, class: "form-control" %>
+  </div>  
   <div class="form-group">
     <%= f.label "Biography" %>
     <%= f.text_area :bio, class: "form-control" %>
   </div>
   <div class="form-group">
-      <%= f.label "Originally from" %>
-      <%= f.text_field :originally_from, class: "form-control" %>
+    <%= f.label "Originally From" %>
+    <%= f.text_field :originally_from, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Link to Website" %>
+    <%= f.text_field :website, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Phone number" %>
+    <%= f.text_field :phone_number, class: "form-control" %>
+  </div>  
+  <div class="form-group">
+    <%= f.label "Name of your most recent Video Reel" %>
+    <%= f.text_field :video_reel_name, class: "form-control" %>
+  </div>  
+  <div class="form-group">
+    <%= f.label "Vimeo number for your most recent Video Reel" %>
+    <%= f.text_field :video_reel_url, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Favorite Director" %>
+    <%= f.text_field :fav_director, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Favorite Movie" %>
+    <%= f.text_field :fav_movie, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Favorite Book" %>
+    <%= f.text_field :fav_book, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Favorite Quote" %>
+    <%= f.text_field :fav_quote, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Name of your Favorite Music Video" %>
+    <%= f.text_field :fav_video_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Link to your Favorite Music Video" %>
+    <%= f.text_field :fav_video_url, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Preferred position on set" %>
+    <%= f.text_field :position, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Previous clients" %>
+    <%= f.text_field :prev_clients, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Skills" %>
+    <%= f.text_field :skills, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Short-term Goals" %>
+    <%= f.text_area :short_goals, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Long-term Goals" %>
+    <%= f.text_area :long_goals, class: "form-control" %>
+  </div>
+  <% if purpose == "create" %>
+    <div class="actions">
+     <%= f.submit "Create Portfolio", class: "btn btn-large btn-primary" %>
     </div>
-    <div class="form-group">
-      <%= f.label "Website" %>
-      <%= f.text_field :website, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Phone number" %>
-      <%= f.text_field :phone_number, class: "form-control" %>
+  <% elsif purpose == "edit" %>
+    <div class="actions">
+     <%= f.submit "Update Portfolio", class: "btn btn-large btn-primary" %>
     </div>  
-    <div class="form-group">
-      <%= f.label "Video reel name" %>
-      <%= f.text_field :video_reel_name, class: "form-control" %>
-    </div>  
-    <div class="form-group">
-      <%= f.label "Video reel URL" %>
-      <%= f.text_field :video_reel_url, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Favorite director" %>
-      <%= f.text_field :fav_director, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Favorite movie" %>
-      <%= f.text_field :fav_movie, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Favorite book" %>
-      <%= f.text_field :fav_book, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Favorite quote" %>
-      <%= f.text_field :fav_quote, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Favorite video name" %>
-      <%= f.text_field :fav_video_name, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Favorite video URL" %>
-      <%= f.text_field :fav_video_url, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Preferred position on set" %>
-      <%= f.text_field :position, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Previous clients" %>
-      <%= f.text_field :prev_clients, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Skills" %>
-      <%= f.text_field :skills, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Short term goals" %>
-      <%= f.text_area :short_goals, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Long term goals" %>
-      <%= f.text_area :long_goals, class: "form-control" %>
-    </div>
-    <% if purpose == "create" %>
-      <div class="form-group">
-        <% @user_array = User.where(admin: nil) %>
-      <%= f.select :user_id, options_from_collection_for_select(@user_array, "id", "name") %>
-      </div>   
-      <div class="actions">
-       <%= f.submit "Create Portfolio", class: "btn btn-large btn-primary" %>
-      </div>
-    <% elsif purpose == "edit" %>
-      <div class="actions">
-       <%= f.submit "Update Portfolio", class: "btn btn-large btn-primary" %>
-      </div>  
-    <% end %> 
+  <% end %> 
 
 <% end %>

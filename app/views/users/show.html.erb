@@ -1,17 +1,33 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
-    <section>
-      <h1 id="archive_title">
-        Hello, <%= @user.name %>
-        <% unless @user.last_name.blank? or @user.last_name == nil %><%= @user.last_name %><%end %>
-      </h1>
-    </section>
-  </aside>
-
-  <%= image_tag @user.picture %>
+  <h1 id="archive_title">
+    Hello,<br><%= @user.name %>
+    <% unless @user.last_name.blank? or @user.last_name == nil %><%= @user.last_name %><%end %>
+  </h1>
+  <h3 class="to_do col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+    What would you like to do?
+  </h3>
   <% unless @user.portfolio == nil %>
-    <%= link_to 'Portfolio', user_portfolio_path(@user.id, @user.portfolio.id) %>
+    <div class="profile_link col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+      <%= link_to 'View Portfolio', user_portfolio_path(@user.id, @user.portfolio.id) %>
+
+    </div>
   <% end %>
+  <% if current_user.admin? %>
+    <div class="profile_link col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+      <%= link_to "Create a New User", new_user_path %>
+    </div>
+  <% end %>
+  <% if current_user.admin? or current_user?(@user)%>
+    <div class="profile_link col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+      <%= link_to 'Edit My User Settings', edit_user_path(@user.id) %>
+    </div>
+  <% end %>
+  <div class="profile_link col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+    <%= link_to 'View a List of All Portfolios', portfolios_path %>
+  </div>
+  <div class="profile_link col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+    <%= link_to 'View the Homepage', root_path %>
+  </div>
 
 </div>

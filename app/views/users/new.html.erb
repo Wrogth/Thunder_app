@@ -1,8 +1,8 @@
-<% provide(:title, 'Sign up') %>
+<% provide(:title, 'Setup New User') %>
 
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
-    <h1>Sign up</h1>
+    <h1>Create a New User</h1>
     <%= form_for(@user) do |f| %>
       <% if @user.errors.any? %>
       <div id="error_explanation">
@@ -33,15 +33,11 @@
       <%= f.password_field :password, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "Re-type Password" %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :picture %>
-      <%= f.text_field :picture, class: "form-control" %>
-    </div>
 
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Create this account", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

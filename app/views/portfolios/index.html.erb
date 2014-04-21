@@ -1,31 +1,27 @@
-<h1>Listing portfolios</h1>
+<% provide(:title, "All Portfolios") %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Feed</th>
-      <th>Cover image</th>
-      <th>Bio</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @portfolios.each do |portfolio| %>
-      <tr>
-        <td><%= portfolio.feed %></td>
-        <td><%= portfolio.cover_image %></td>
-        <td><%= portfolio.bio %></td>
-        <td><%= link_to 'Show', portfolio %></td>
-        <td><%= link_to 'Edit', edit_portfolio_path(portfolio) %></td>
-        <td><%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="portfolio_index">
+  <h1 class="portfolio_title">All Portfolios</h1>
+  <h2 class="new_user"><%= link_to "Create New User", new_user_path %></h2>
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-md-6">
+        <div class="user_name">
+          <% if user.portfolio.nil? %>
+            <%= user.name %> <%= user.last_name %>
+            <% if current_user.admin? %>
+              <div class="new_portfolio_link">
+                <%= link_to "Create New Portfolio", new_portfolio_path %>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to (user_portfolio_path(user.id, user.portfolio.id)) do %>
+              <%= user.name %> <%= user.last_name %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Portfolio', new_portfolio_path %>
+  </div>
+</div>

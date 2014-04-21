@@ -81,16 +81,7 @@
 
 <div class="container">
 <div class="row">
-  <% unless @portfolio.originally_from == nil or @portfolio.originally_from.blank? %>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="portfolio_title_smaller">
-        <center>Originally From:</center>
-      </div>
-      <div class="portfolio_content from_content">
-        <center><%= @portfolio.originally_from %></center>
-      </div>
-    </div>
-  <% end %>
+  
   <% unless @portfolio.video_reel_name == nil or @portfolio.video_reel_name.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">   
       <div class="portfolio_title_smaller">
@@ -110,6 +101,16 @@
       </div>
       <div class="portfolio_content bio_content">
         <center><a href="<%= @portfolio.fav_video_url %>"><%= @portfolio.fav_video_name %></a></center>
+      </div>
+    </div>
+  <% end %>
+  <% unless @portfolio.originally_from == nil or @portfolio.originally_from.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="portfolio_title_smaller">
+        <center>Originally From:</center>
+      </div>
+      <div class="portfolio_content from_content">
+        <center><%= @portfolio.originally_from %></center>
       </div>
     </div>
   <% end %>
@@ -163,15 +164,43 @@
       </div>
     </div>
   <% end %>
-  <% unless @portfolio.video_reel_name == nil or @portfolio.video_reel_name.blank? %>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">   
+  <% unless @portfolio.prev_clients == nil or @portfolio.prev_clients.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
       <div class="portfolio_title_smaller">
-        <center>Latest Video Reel:</center>
+        <center>Previous Clients:</center>
       </div>
       <div class="portfolio_content bio_content">
-        <center>
-          <span class="videoLink" data-video="75984087"><%= @portfolio.video_reel_name %></span>
-        </center>
+        <center><%= @portfolio.prev_clients %></center>
+      </div>
+    </div>
+  <% end %>
+  <% unless @portfolio.skills == nil or @portfolio.skills.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        <center>Skills:</center>
+      </div>
+      <div class="portfolio_content bio_content">
+        <center><%= @portfolio.skills %></center>
+      </div>
+    </div>
+  <% end %>
+  <% unless @portfolio.short_goals == nil or @portfolio.short_goals.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        <center>Short-term Goals:</center>
+      </div>
+      <div class="portfolio_content bio_content">
+        <center><%= @portfolio.short_goals %></center>
+      </div>
+    </div>
+  <% end %>
+  <% unless @portfolio.long_goals == nil or @portfolio.long_goals.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        <center>Long-term Goals:</center>
+      </div>
+      <div class="portfolio_content bio_content">
+        <center><%= @portfolio.long_goals %></center>
       </div>
     </div>
   <% end %>

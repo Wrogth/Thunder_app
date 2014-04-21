@@ -17,7 +17,7 @@
 		<% @u.pop(3).each do |user| %>
 		 	<div class="front_page_images col-lg-4 col-md-4 col-sm-6 col-xs-12">
 				<%= link_to(user_portfolio_path(user, user.portfolio.id)) do %>
-					<img src="<%= user.picture %>">
+					<img src="<%= user.portfolio.home_pic %>">
 				<% end %>
 				<Br><div class="img_caption"><%= user.name %></div>
 			</div>
@@ -26,13 +26,13 @@
 		<% @last = @u.pop(2) %>
 	 	<div class="front_page_images col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-6 col-xs-12">
 	 		<%= link_to(user_portfolio_path(@last.first, @last.first.portfolio.id)) do %>
-				<img src="<%= @last.first.picture %>">
+				<img src="<%= @last.first.portfolio.home_pic %>">
 			<% end %>
 			<Br><div class="img_caption"><%= @last.first.name %></div>
 		</div>		
 	 	<div class="front_page_images col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	 		<%= link_to(user_portfolio_path(@last.last, @last.last.portfolio.id)) do %>
-				<img src="<%= @last.second.picture %>">
+				<img src="<%= @last.second.portfolio.home_pic %>">
 			<% end %>
 			<Br><div class="img_caption"><%= @last.second.name %></div>
 		</div>				
@@ -41,7 +41,7 @@
 		<% @last = @u.pop %>
 	 	<div class="front_page_images col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-xs-12">
 			<%= link_to(user_portfolio_path(@last, @last.portfolio.id)) do %>
-				<img src="<%= @last.picture %>">
+				<img src="<%= @last.portfolio.home_pic %>">
 			<% end %>
 			<Br><div class="img_caption"><%= @last.name %></div>
 		</div>			
