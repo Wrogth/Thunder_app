@@ -1,3 +1,4 @@
+<% provide(:title, @user.name) %>
 <p id="notice"><%= notice %></p>
 
 <script>
@@ -62,12 +63,14 @@
       <center><%= @portfolio.phone_number %></center>
     </div>
   </div>
-  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
-    <div class="portfolio_title"><center>Bio:</center></div>
-    <div class="portfolio_content bio_content">
-      <%= @portfolio.bio %>
+  <% unless @portfolio.bio == nil or @portfolio.bio.blank? %>
+    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+      <div class="portfolio_title"><center>Bio:</center></div>
+      <div class="portfolio_content bio_content">
+        <%= @portfolio.bio %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
 </div>
 
@@ -85,122 +88,144 @@
   <% unless @portfolio.video_reel_name == nil or @portfolio.video_reel_name.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">   
       <div class="portfolio_title_smaller">
-        <center>Latest Video Reel:</center>
+        Latest Video Reel:
       </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">   
       <div class="portfolio_content bio_content">
-        <center>
           <span class="videoLink" data-video="75984087"><%= @portfolio.video_reel_name %></span>
-        </center>
       </div>
     </div>
   <% end %>
   <% unless @portfolio.fav_video_name == nil or @portfolio.fav_video_name.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">   
       <div class="portfolio_title_smaller">
-        <center>Favorite Music Video:</center>
+        Personal Work You're Most Proud of:
       </div>
-      <div class="portfolio_content bio_content">
-        <center><a href="<%= @portfolio.fav_video_url %>"><%= @portfolio.fav_video_name %></a></center>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
+      <div class="portfolio_content bio_content red_link">
+        <a href="<%= @portfolio.fav_video_url %>"><%= @portfolio.fav_video_name %></a>
       </div>
     </div>
   <% end %>
   <% unless @portfolio.originally_from == nil or @portfolio.originally_from.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <div class="portfolio_title_smaller">
-        <center>Originally From:</center>
+        Originally From:
       </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
       <div class="portfolio_content from_content">
-        <center><%= @portfolio.originally_from %></center>
+        <%= @portfolio.originally_from %>
       </div>
     </div>
   <% end %>
   <% unless @portfolio.fav_director == nil or @portfolio.fav_director.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
       <div class="portfolio_title_smaller">
-        <center>Favorite Director:</center>
+        Favorite Director(s):
       </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
       <div class="portfolio_content bio_content">
-        <center><%= @portfolio.fav_director %></center>
+        <%= @portfolio.fav_director %>
       </div>
     </div>
   <% end %>
   <% unless @portfolio.fav_movie == nil or @portfolio.fav_movie.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
       <div class="portfolio_title_smaller">
-        <center>Favorite Movie:</center>
+        Favorite Movie:
       </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
       <div class="portfolio_content bio_content">
-        <center><%= @portfolio.fav_movie %></center>
+        <%= @portfolio.fav_movie %>
       </div>
     </div>
   <% end %>
   <% unless @portfolio.fav_book == nil or @portfolio.fav_book.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
       <div class="portfolio_title_smaller">
-        <center>Favorite Book:</center>
+        Favorite Book:
       </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
       <div class="portfolio_content bio_content">
-        <center><%= @portfolio.fav_book %></center>
+        <%= @portfolio.fav_book %>
       </div>
     </div>
   <% end %>
   <% unless @portfolio.fav_quote == nil or @portfolio.fav_quote.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
       <div class="portfolio_title_smaller">
-        <center>Favorite Quote:</center>
+        Favorite Quote:
       </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
       <div class="portfolio_content bio_content">
-        <center><%= @portfolio.fav_quote %></center>
+        <%= @portfolio.fav_quote %>
       </div>
     </div>
   <% end %>
   <% unless @portfolio.position == nil or @portfolio.position.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
       <div class="portfolio_title_smaller">
-        <center>Preferred Position on Set:</center>
+        Preferred Position on Set:
       </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
       <div class="portfolio_content bio_content">
-        <center><%= @portfolio.position %></center>
+        <%= @portfolio.position %>
       </div>
     </div>
   <% end %>
   <% unless @portfolio.prev_clients == nil or @portfolio.prev_clients.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
       <div class="portfolio_title_smaller">
-        <center>Previous Clients:</center>
+        Previous Clients:
       </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
       <div class="portfolio_content bio_content">
-        <center><%= @portfolio.prev_clients %></center>
+        <%= @portfolio.prev_clients %>
       </div>
     </div>
   <% end %>
   <% unless @portfolio.skills == nil or @portfolio.skills.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
       <div class="portfolio_title_smaller">
-        <center>Skills:</center>
+        Skills:
       </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
       <div class="portfolio_content bio_content">
-        <center><%= @portfolio.skills %></center>
+        <%= @portfolio.skills %>
       </div>
     </div>
   <% end %>
   <% unless @portfolio.short_goals == nil or @portfolio.short_goals.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
       <div class="portfolio_title_smaller">
-        <center>Short-term Goals:</center>
+        Short-term Goals:
       </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
       <div class="portfolio_content bio_content">
-        <center><%= @portfolio.short_goals %></center>
+        <%= @portfolio.short_goals %>
       </div>
     </div>
   <% end %>
   <% unless @portfolio.long_goals == nil or @portfolio.long_goals.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
       <div class="portfolio_title_smaller">
-        <center>Long-term Goals:</center>
+        Long-term Goals:
       </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
       <div class="portfolio_content bio_content">
-        <center><%= @portfolio.long_goals %></center>
+        <%= @portfolio.long_goals %>
       </div>
     </div>
   <% end %>

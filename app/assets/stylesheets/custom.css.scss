@@ -43,9 +43,18 @@ select#portfolio_user_id {
       }
     }
   }
-  .new_portfolio_link {
+  .index_portfolio_link {
     font-size: 15px;
     margin-top: 15px;
+  }
+  .create_portfolio_link a {
+    color: #cc0000;
+    &:hover {
+      color: #333;
+    }
+    &:visited {
+      color: #cc0000;
+    }
   }
 }
 
@@ -122,15 +131,18 @@ select#portfolio_user_id {
 }
 
 .portfolio_title_smaller {
-  font-size: 30px;
+  font-size: 15px;
+  text-align: right;
+  line-height: 30px;
 }
 
 .portfolio_content {
-  font-size: 30px;
+  font-size: 20px;
   margin-bottom: 50px;
   font-style: italic;
   font-family: serif;
   line-height: 30px;
+  text-align: left;
   a {
     color: #666;
     &:hover {
@@ -141,13 +153,16 @@ select#portfolio_user_id {
   }
 }
 
-.videoLink {
-  color: #666;
+.videoLink, .red_link a {
+  color: #cc0000;
   &:hover {
     cursor: pointer;
     background-color: #fff;
-    color: #c00000 ;
+    color: #f00000 ;
     text-decoration: none;
+  }
+  &:visited {
+    color: #cc0000;
   }
 }
 

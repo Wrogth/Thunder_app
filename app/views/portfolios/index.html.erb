@@ -11,13 +11,18 @@
           <% if user.portfolio.nil? %>
             <%= user.name %> <%= user.last_name %>
             <% if current_user.admin? %>
-              <div class="new_portfolio_link">
-                <%= link_to "Create New Portfolio", new_portfolio_path %>
+              <div class="index_portfolio_link">
+                <%= link_to "Edit User Settings", edit_user_path(user) %> | 
+                <span class="create_portfolio_link"><%= link_to "Create New Portfolio", new_portfolio_path %></span>
               </div>
             <% end %>
           <% else %>
             <%= link_to (user_portfolio_path(user.id, user.portfolio.id)) do %>
               <%= user.name %> <%= user.last_name %>
+              <div class="index_portfolio_link">
+                <%= link_to "Edit User Settings", edit_user_path(user) %> | 
+                <%= link_to "Edit Portfolio", edit_portfolio_path(user.portfolio.id) %>
+              </div>
             <% end %>
           <% end %>
         </div>
