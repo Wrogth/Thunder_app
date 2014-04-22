@@ -37,6 +37,7 @@
   </script>
 
 <div class="row">
+  <div class="home_link col-lg-12 col-md-12 col-sm-12 col-xs-12"><%= link_to "Home", root_path %></div>
   <div class="portfolio_head col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <%= @user.name %> <%= @user.last_name %>
   </div>
@@ -86,12 +87,12 @@
 <div class="row">
   
   <% unless @portfolio.video_reel_name == nil or @portfolio.video_reel_name.blank? %>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">   
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">   
       <div class="portfolio_title_smaller">
         Latest Video Reel:
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">   
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">   
       <div class="portfolio_content bio_content">
           <span class="videoLink" data-video="75984087"><%= @portfolio.video_reel_name %></span>
       </div>
@@ -103,19 +104,19 @@
         Personal Work You're Most Proud of:
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content bio_content red_link">
         <a href="<%= @portfolio.fav_video_url %>"><%= @portfolio.fav_video_name %></a>
       </div>
     </div>
   <% end %>
   <% unless @portfolio.originally_from == nil or @portfolio.originally_from.blank? %>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
       <div class="portfolio_title_smaller">
         Originally From:
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content from_content">
         <%= @portfolio.originally_from %>
       </div>
@@ -127,7 +128,7 @@
         Favorite Director(s):
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content bio_content">
         <%= @portfolio.fav_director %>
       </div>
@@ -139,7 +140,7 @@
         Favorite Movie:
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content bio_content">
         <%= @portfolio.fav_movie %>
       </div>
@@ -151,7 +152,7 @@
         Favorite Book:
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content bio_content">
         <%= @portfolio.fav_book %>
       </div>
@@ -163,7 +164,7 @@
         Favorite Quote:
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content bio_content">
         <%= @portfolio.fav_quote %>
       </div>
@@ -175,7 +176,7 @@
         Preferred Position on Set:
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content bio_content">
         <%= @portfolio.position %>
       </div>
@@ -187,7 +188,7 @@
         Previous Clients:
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content bio_content">
         <%= @portfolio.prev_clients %>
       </div>
@@ -199,7 +200,7 @@
         Skills:
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content bio_content">
         <%= @portfolio.skills %>
       </div>
@@ -211,7 +212,7 @@
         Short-term Goals:
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content bio_content">
         <%= @portfolio.short_goals %>
       </div>
@@ -223,7 +224,7 @@
         Long-term Goals:
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">  
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content bio_content">
         <%= @portfolio.long_goals %>
       </div>

@@ -153,6 +153,28 @@ select#portfolio_user_id {
   }
 }
 
+@media (max-width: 991px) {
+  .portfolio_title_smaller, .portfolio_content {
+    text-align: center;
+  }
+}
+
+.home_link {
+  text-align: right;
+  font-size: 15px;
+  color: #cc0000;
+  a {
+    &:hover {
+      color: #f00000;
+      text-decoration: none;
+      background-color: #fff;
+    }
+    &:visited {
+      color: #cc0000;
+    }
+  }
+}
+
 .videoLink, .red_link a {
   color: #cc0000;
   &:hover {
@@ -165,11 +187,6 @@ select#portfolio_user_id {
     color: #cc0000;
   }
 }
-
-.bio_content {
-  text-align: justify;
-}
-
 
 .portfolio_head {
   font-family: 'Cinzel';
