@@ -144,11 +144,14 @@ select#portfolio_user_id {
   line-height: 30px;
   text-align: left;
   a {
-    color: #666;
+    color: #cc0000;
     &:hover {
       background-color: #fff;
-      color: #c00000;
+      color: #f00000;
       text-decoration: none;
+    }
+    &:visited {
+      color: #cc0000;
     }
   }
 }
@@ -156,6 +159,20 @@ select#portfolio_user_id {
 @media (max-width: 991px) {
   .portfolio_title_smaller, .portfolio_content {
     text-align: center;
+  }
+}
+
+.more_info {
+  font-size: 25px;
+  font-style: italic;
+  text-align: center;
+  a {
+    color: #cc0000;
+    &:hover {
+      background-color: #fff;
+      text-decoration: none;
+      color: #f00000;
+    }
   }
 }
 
@@ -239,21 +256,19 @@ h1.index_title {
 }
 
 .slogan {
-  margin-top: -10px;
+  margin-top: -30px;
   text-align: center;
   color: #666;
 }
 
 @media (max-width: 991px) {
   .slogan {
-    margin-top: 10px;
     font-size: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .slogan {
-    margin-top: 15px;
     font-size: 16px;
   }
 }
@@ -357,6 +372,7 @@ tr:nth-child(even), tr:nth-child(even) a {
 #social {
   height: 45px;
   text-align: center;
+  margin-top: -30px;
 }
 
 #social .icons {

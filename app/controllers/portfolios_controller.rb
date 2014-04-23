@@ -78,7 +78,7 @@ class PortfoliosController < ApplicationController
                                         :phone_number, :video_reel_name, :video_reel_url, :fav_director,
                                         :fav_movie, :fav_book, :fav_quote, :fav_video_name, :fav_video_url,
                                         :position, :prev_clients, :skills, :short_goals, :long_goals, 
-                                        :home_pic)
+                                        :home_pic, :doing_now, :currently, :twitter, :youtube, :vimeo)
     end
 
     def admin_user

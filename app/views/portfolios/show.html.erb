@@ -86,7 +86,7 @@
 <div class="container">
 <div class="row">
   
-  <% unless @portfolio.video_reel_name == nil or @portfolio.video_reel_name.blank? %>
+  <% unless @portfolio.video_reel_url == nil or @portfolio.video_reel_url.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">   
       <div class="portfolio_title_smaller">
         Latest Video Reel:
@@ -94,7 +94,7 @@
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">   
       <div class="portfolio_content bio_content">
-          <span class="videoLink" data-video="75984087"><%= @portfolio.video_reel_name %></span>
+          <span class="videoLink" data-video="<%=@portfolio.video_reel_url%>"><%= @portfolio.video_reel_name %></span>
       </div>
     </div>
   <% end %>
@@ -227,6 +227,66 @@
     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content bio_content">
         <%= @portfolio.long_goals %>
+      </div>
+    </div>
+  <% end %>
+  <% unless @portfolio.doing_now == nil or @portfolio.doing_now.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        What you are doing now:
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
+      <div class="portfolio_content bio_content">
+        <%= @portfolio.doing_now %>
+      </div>
+    </div>
+  <% end %>
+  <% unless @portfolio.currently == nil or @portfolio.currently.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        Currently:
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
+      <div class="portfolio_content bio_content">
+        <%= @portfolio.currently %>
+      </div>
+    </div>
+  <% end %>
+  <% unless @portfolio.vimeo == nil or @portfolio.vimeo.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        Vimeo Page:
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
+      <div class="portfolio_content bio_content">
+        <a href="<%= @portfolio.vimeo %>"><%= @portfolio.vimeo %></a>
+      </div>
+    </div>
+  <% end %>
+  <% unless @portfolio.youtube == nil or @portfolio.youtube.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        YouTube Page:
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
+      <div class="portfolio_content bio_content">
+        <a href="<%= @portfolio.youtube %>"><%= @portfolio.youtube %></a>
+      </div>
+    </div>
+  <% end %>
+  <% unless @portfolio.twitter == nil or @portfolio.twitter.blank? %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">    
+      <div class="portfolio_title_smaller">
+        Twitter Feed:
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
+      <div class="portfolio_content bio_content">
+        <a href="<%= @portfolio.twitter %>"><%= @portfolio.twitter %></a>
       </div>
     </div>
   <% end %>

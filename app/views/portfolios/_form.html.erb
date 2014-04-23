@@ -44,7 +44,7 @@
     <%= f.text_field :website, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label "Phone number" %>
+    <%= f.label "Contact (Phone or Email)" %>
     <%= f.text_field :phone_number, class: "form-control" %>
   </div>  
   <div class="form-group">
@@ -93,11 +93,31 @@
   </div>
   <div class="form-group">
     <%= f.label "Short-term Goals" %>
-    <%= f.text_area :short_goals, class: "form-control" %>
+    <%= f.text_field :short_goals, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label "Long-term Goals" %>
-    <%= f.text_area :long_goals, class: "form-control" %>
+    <%= f.text_field :long_goals, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "What you're doing now" %>
+    <%= f.text_field :doing_now, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Currently" %>
+    <%= f.text_field :currently, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "YouTube Link" %>
+    <%= f.text_field :youtube, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Vimeo Link" %>
+    <%= f.text_field :vimeo, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Twitter Link" %>
+    <%= f.text_field :twitter, class: "form-control" %>
   </div>
   <% if purpose == "create" %>
     <div class="actions">
