@@ -1,20 +1,19 @@
 <% provide(:title, @user.name) %>
 <p id="notice"><%= notice %></p>
 
+
 <script>
   $(document).ready(function() {
     var description = "This is a description";
-
+    
     var populateVideo = function(video) {
-      $('#contentThatFades').append("<div class='video'><iframe src='http://player.vimeo.com/video/" + video + "?title=0&amp;byline=0&amp;portrait=0' width='400' height='225' frameborder='0'></iframe>"+"</div>");
+       var type ="<div class='video'>" + video + "</div>";
+      $('#contentThatFades').append(type);
 
             $(".video").fitVids();
             setTimeout(function(){
             $("#panelThatSlides").slideDown(400);
-      }, 600);
-            
-            
-
+      }, 600);           
     }
     $('.videoLink').click(function () {
       //var videoVal = ($("#"+ eventID).data('video'));
@@ -94,11 +93,20 @@
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">   
       <div class="portfolio_content bio_content">
-          <span class="videoLink" data-video="<%=@portfolio.video_reel_url%>"><%= @portfolio.video_reel_name %></span>
+        <% if @portfolio.video_reel_type == "vimeo" %>
+          <span class="videoLink" data-video="<iframe src='http://player.vimeo.com/video/<%= @portfolio.video_reel_url %>?title=0&amp;byline=0&amp;portrait=0' width='400' height='225' frameborder='0'></iframe>"><%= @portfolio.video_reel_name %></span>
+        <% end %>
+        <% if @portfolio.video_reel_type == "youtube" %>
+          <span class="videoLink" data-video="<iframe width='425' height='349' src=http://www.youtube.com/embed/<%= @portfolio.video_reel_url %> frameborder='0' allowfullscreen></iframe>"><%= @portfolio.video_reel_name %>
+          </span>
+        <% end %>
+        <% if @portfolio.video_reel_type == "dir_link" %>
+            <a href="<%= @portfolio.video_reel_url %>"><%= @portfolio.video_reel_name %></a>
+        <% end %>
       </div>
     </div>
   <% end %>
-  <% unless @portfolio.fav_video_name == nil or @portfolio.fav_video_name.blank? %>
+  <% unless @portfolio.fav_video_url == nil or @portfolio.fav_video_url.blank? %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">   
       <div class="portfolio_title_smaller">
         Personal Work You're Most Proud of:
@@ -106,7 +114,16 @@
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  
       <div class="portfolio_content bio_content red_link">
-        <a href="<%= @portfolio.fav_video_url %>"><%= @portfolio.fav_video_name %></a>
+        <% if @portfolio.fav_video_type == "vimeo" %>
+          <span class="videoLink" data-video="<iframe src='http://player.vimeo.com/video/<%= @portfolio.fav_video_url %>?title=0&amp;byline=0&amp;portrait=0' width='400' height='225' frameborder='0'></iframe>"><%= @portfolio.fav_video_name %></span>
+        <% end %>
+        <% if @portfolio.fav_video_type == "youtube" %>
+          <span class="videoLink" data-video="<iframe width='425' height='349' src=http://www.youtube.com/embed/<%= @portfolio.fav_video_url %> frameborder='0' allowfullscreen></iframe>"><%= @portfolio.fav_video_name %>
+          </span>
+        <% end %>
+        <% if @portfolio.fav_video_type == "dir_link" %>
+            <a href="<%= @portfolio.fav_video_url %>"><%= @portfolio.fav_video_name %></a>
+        <% end %>
       </div>
     </div>
   <% end %>

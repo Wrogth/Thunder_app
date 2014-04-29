@@ -52,13 +52,6 @@ def make_portfolios
                     user_id: 2)
 end
 
-def make_videos
-  Video.create!(url: "79707968",
-                cover: "https://lh3.googleusercontent.com/-rpc37qBUSyo/AAAAAAAAAAI/AAAAAAAAAAA/GchiW0GstXM/photo.jpg")
-
-  Video.create!(url: "87489822",
-                cover: "http://img1.wikia.nocookie.net/__cb20121004174456/leagueoflegends/images/c/cc/Genja_M5.jpg")
-end
 
 def make_relationships
   users = User.all

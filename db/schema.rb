@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423051153) do
+ActiveRecord::Schema.define(version: 20140429155524) do
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20140423051153) do
     t.string   "twitter"
     t.string   "youtube"
     t.string   "vimeo"
+    t.string   "video_reel_type"
+    t.string   "fav_video_type"
   end
 
   add_index "portfolios", ["user_id"], name: "index_portfolios_on_user_id"
@@ -88,7 +90,5 @@ ActiveRecord::Schema.define(version: 20140423051153) do
     t.string   "cover"
     t.integer  "portfolio_id"
   end
-
-  add_index "videos", ["portfolio_id"], name: "index_videos_on_portfolio_id"
 
 end
